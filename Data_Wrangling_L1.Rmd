@@ -26,4 +26,31 @@ liters_df_abs=
 
 liters_df_abs = 
   janitor::clean_names(liters_df_abs)
+
+head(liters_df)
+
+tail(liters_df)
 ```
+
+```{r, eval=FALSE}
+View(liters_df)
+```
+
+Look at data summary
+
+```{r}
+str(liters_df)
+
+skimr::skim(liters_df)
+
+```
+
+Import pups dataset
+```{r}
+pups_df=
+  read_csv("data/FAS_pups.csv")
+
+pups_df = 
+  janitor::clean_names(pups_df)
+```
+
