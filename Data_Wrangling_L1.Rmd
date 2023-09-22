@@ -84,3 +84,30 @@ liters_df
 ```
 
 #Other file types
+
+Import an xlx file first. 
+First load in readdxl library
+
+```{r}
+  library(readxl)
+```
+
+```{r}
+  mlb_df=
+    read_excel("data/mlb11.xlsx")
+```
+
+Import a sas file.
+
+```{r}
+  library(haven)
+```
+
+```{r}
+  pulse_df=
+    read_sas("data/public_pulse_data.sas7bdat")
+```
+
+```{r, eval=FALSE}
+View(pulse_df)
+```
