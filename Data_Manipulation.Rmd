@@ -111,3 +111,26 @@ This is used to add or change variables.
 ```{r}
 mutate(litters_df, wt_gain = gd18_weight - gd0_weight)
 ```
+
+##arange 
+Puts in order.
+
+```{r}
+arrange(litters_df, gd0_weight)
+```
+
+#pipe
+
+```{r}
+litters_df
+  read_csv("data/FAS_litters.csv") |> 
+    janitor:: clean_names() |>
+    select(-starts_with("pups")) |>
+  mutate(
+    group= str_to_lower(group),
+    weight_gain = gd18_weight - gd0_weight
+  ) |>
+    drop_na(weight_gain) |>
+    arrange(group, weight_gain)
+```
+
