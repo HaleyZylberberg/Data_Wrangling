@@ -6,3 +6,68 @@ output: github_document
 ```{r setup}
 library(tidyverse)
 ```
+
+Import FAS litters and pups
+```{r import}
+
+litters_df = 
+  read.csv("data/FAS_litters.csv")
+litters_df= 
+  janitor:: clean_names(litters_df)
+
+pups_df = 
+  read.csv("data/FAS_pups.csv")
+pups_df= 
+  janitor:: clean_names(pups_df)
+```
+
+#select
+
+Select is used to select columns. Can change order with this. The ":" means everything between variables. 
+
+```{r}
+select(litters_df, group, litter_number, gd0_weight)
+
+select(litters_df, gd0_weight, group)
+
+select(litters_df, group, gd0_weight:gd_of_birth)
+```
+
+Starts with includes all variables that start with certain letters, can also do ends with and contains. 
+
+```{r}
+select(litters_df, gd0_weight, starts_with("pups"))
+```
+
+can also tell it what to remove (-).
+```{r}
+select(litters_df, - gd0_weight, -starts_with("pups"))
+```
+
+
+Can also rename during select. But can rename without select and keep everything.
+```{r}
+select(litters_df, group, litter_id = litter_number)
+
+rename(litters_df, litter_id = litter_number)
+```
+
+Can also keep everything and reorder.
+
+```{r}
+select(litters_df, litter_number, everything())
+```
+
+Can also keep reorder.
+
+```{r}
+relocate(litters_df, litter_number)
+```
+
+select vs pull. Select keeps the dataframe and pull creates a vector (gets something out of data frame. 
+
+```{r}
+select(litters_df, group)
+
+pull(litters_df, group)
+```
