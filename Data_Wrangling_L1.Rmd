@@ -111,3 +111,28 @@ Import a sas file.
 ```{r, eval=FALSE}
 View(pulse_df)
 ```
+
+
+#Base R
+
+```{r, eval= FALSE}
+liters_df = 
+  read.csv("data/FAS_litters.csv")
+
+liters_df$Gr
+```
+
+Dont use $ because it calls in all variables with the same beginning if you dont type it out full name.
+
+#Export Data
+
+We want to export data.
+```{r}
+liters_df_cleaned=
+  read_csv("data/FAS_litters.csv")
+
+liters_df_cleaned = 
+  janitor:: clean_names(liters_df_cleaned)
+
+write_csv(liters_df_cleaned, "data/liters_cleaned.csv")
+```

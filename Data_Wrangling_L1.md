@@ -321,3 +321,40 @@ Import a sas file.
 ``` r
 View(pulse_df)
 ```
+
+\#Base R
+
+``` r
+liters_df = 
+  read.csv("data/FAS_litters.csv")
+
+liters_df$Gr
+```
+
+Dont use \$ because it calls in all variables with the same beginning if
+you dont type it out full name.
+
+\#Export Data
+
+We want to export data.
+
+``` r
+liters_df_cleaned=
+  read_csv("data/FAS_litters.csv")
+```
+
+    ## Rows: 49 Columns: 8
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (2): Group, Litter Number
+    ## dbl (6): GD0 weight, GD18 weight, GD of Birth, Pups born alive, Pups dead @ ...
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+``` r
+liters_df_cleaned = 
+  janitor:: clean_names(liters_df_cleaned)
+
+write_csv(liters_df_cleaned, "data/liters_cleaned.csv")
+```
