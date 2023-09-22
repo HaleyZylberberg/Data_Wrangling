@@ -2,3 +2,28 @@
 title: "Data Wrangling L1"
 output: github_document
 ---
+
+Let's import the FAS_litters.csv using a relative path.
+
+```{r setup}
+library(tidyverse)
+```
+
+
+```{r}
+liters_df=
+  read_csv("data/FAS_litters.csv")
+
+liters_df = 
+  janitor::clean_names(liters_df)
+```
+
+Let's import the FAS_litters.csv using an absolute path. Having issues with this, maybe bec of spaces in file names.
+
+```{r, eval=FALSE}
+liters_df_abs=
+  read_csv("~Desktop/Fall2023/DataScience/Lectures/DataWrangling/Data/FAS_litters.csv")
+
+liters_df_abs = 
+  janitor::clean_names(liters_df_abs)
+```
