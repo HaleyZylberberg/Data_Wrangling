@@ -54,3 +54,33 @@ pups_df =
   janitor::clean_names(pups_df)
 ```
 
+#Options in 'read_*'
+
+Col_names - assignes first row as names. And Skip skips rows.
+```{r}
+liters_df
+  read_csv("data/FAS_litters.csv",
+  skip = 10, col_names = FALSE)
+```
+
+Look at NA values.
+Here we say treat NA and 19 as missing.
+```{r}
+liters_df
+  read_csv("data/FAS_litters.csv",
+  na= c("NA", 19 ))
+```
+
+Column types
+Change variables from numeric to character to factor etc.
+
+```{r}
+liters_df
+  read_csv("data/FAS_litters.csv",
+  col_types = 
+    cols(
+      Group = col_factor()
+    ))
+```
+
+#Other file types
