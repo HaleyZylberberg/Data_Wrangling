@@ -71,3 +71,31 @@ select(litters_df, group)
 
 pull(litters_df, group)
 ```
+
+#filter
+
+Get rid of rows using filter. =1 is not equal to.
+
+```{r}
+filter(litters_df, group=="Con7")
+
+filter(litters_df, gd0_weight>20)
+```
+
+keep this or that
+```{r}
+filter(litters_df, group %in% c("Con7","Con8"))
+```
+
+Dont keep this (keep everything else)
+```{r}
+filter(litters_df, !(group=="Con7"))
+```
+
+Select multiple things at once.
+```{r}
+filter(litters_df, group %in% c("Con7","Con8"), gd0_weight>20)
+```
+
+
+
