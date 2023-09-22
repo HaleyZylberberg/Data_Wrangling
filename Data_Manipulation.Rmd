@@ -1,0 +1,8 @@
+---
+title: "Data manipulation"
+output: github_document
+---
+
+```{r setup}
+library(tidyverse)
+```
