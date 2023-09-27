@@ -1,6 +1,6 @@
 ---
-title: "Data Wrangling L3"
-output: git_document
+title: "Data Wrangling L3 - Tidy Data"
+output: github_document
 ---
 
 ```{r }
